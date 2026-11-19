@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  html, body {
+    background-color: #000000;
+    color: #F5F5F7;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Inter", system-ui, sans-serif;
+    letter-spacing: -0.011em;
+    overflow-x: hidden;
+    touch-action: manipulation;
+  }
+}
+
+/* Custom Glass & Glowing Utilities */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-panel-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-panel-hover:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 0 30px -10px rgba(10, 132, 255, 0.25);
+}
+
+.apple-intelligence-glow {
+  background: radial-gradient(circle at 50% 50%, rgba(10, 132, 255, 0.22) 0%, rgba(168, 85, 247, 0.16) 40%, rgba(251, 191, 36, 0.08) 70%, transparent 100%);
+  filter: blur(50px);
+}
+
+/* Subtle Shimmer for Titanium / Cards */
+@keyframes card-shimmer {
+  0% { transform: translateX(-150%) rotate(25deg); }
+  100% { transform: translateX(250%) rotate(25deg); }
+}
+
+.animate-card-shimmer {
+  animation: card-shimmer 4s ease-in-out infinite;
+}
+
+/* Hide scrollbar for neat presentation */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
