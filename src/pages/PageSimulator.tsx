@@ -6,7 +6,6 @@ import {
   ArrowRight,
   TrendingUp,
   Clock,
-  Sparkles,
 } from 'lucide-react';
 import { PageProps } from '../types';
 
@@ -29,7 +28,7 @@ export const PageSimulator: React.FC<PageProps> = ({ onNext }) => {
   const currentEvadeText = evadeTexts[Math.min(evadeAttempt, evadeTexts.length - 1)];
   const isEvadeBroken = evadeAttempt >= 5;
 
-  // Trigger ONLY on click (Скрин 1 requirement)
+  // Trigger ONLY on click
   const handleEvadeAction = () => {
     if (isEvadeBroken) return;
     const nextAttempt = evadeAttempt + 1;
@@ -52,17 +51,13 @@ export const PageSimulator: React.FC<PageProps> = ({ onNext }) => {
         }`}
       />
 
-      {/* Header */}
+      {/* Header without pill badge */}
       <motion.div
         initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
         className="text-center mb-8 sm:mb-10"
       >
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.1] text-xs font-mono text-[#0A84FF] mb-3">
-          <Sparkles className="w-3.5 h-3.5" />
-          <span>QUANTUM TIMELINE SIMULATOR</span>
-        </div>
         <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-[#F5F5F7] mb-3">
           Эффект бабочки
         </h2>
@@ -71,7 +66,7 @@ export const PageSimulator: React.FC<PageProps> = ({ onNext }) => {
         </p>
       </motion.div>
 
-      {/* iOS Segmented Control - ONLY emojis, no SVG symbols (Скрин 4 fix) */}
+      {/* iOS Segmented Control */}
       <div className="w-full max-w-md p-1.5 rounded-2xl bg-white/[0.06] border border-white/[0.08] backdrop-blur-xl flex items-center mb-8 relative">
         <button
           type="button"
@@ -186,7 +181,7 @@ export const PageSimulator: React.FC<PageProps> = ({ onNext }) => {
               </div>
             </div>
 
-            {/* Forecast text - Тамбов instead of Россия */}
+            {/* Forecast text */}
             <div className="p-4 rounded-2xl bg-rose-500/[0.07] border border-rose-500/20">
               <div className="flex items-start gap-2.5">
                 <Clock className="w-5 h-5 text-rose-400 shrink-0 mt-0.5" />
@@ -211,7 +206,7 @@ export const PageSimulator: React.FC<PageProps> = ({ onNext }) => {
           <ArrowRight className="w-5 h-5" />
         </button>
 
-        {/* Evasive Funny Button: ONLY ON CLICK (Скрин 1 fix, no onMouseEnter) */}
+        {/* Evasive Funny Button */}
         <div className="relative w-full flex justify-center py-2 overflow-visible">
           <motion.button
             type="button"

@@ -74,20 +74,9 @@ export const PageCertificate: React.FC<PageProps> = ({ onGoToStep }) => {
     'https://t.me/Skytekss?text=%D0%9B%D0%B0%D0%B4%D0%BD%D0%BE%2C%20%D1%81%D0%B0%D0%B9%D1%82%20%D1%80%D0%B0%D0%B7%D1%8A%D1%91%D0%B1!%20%D0%A8%D0%BE%D0%B2%D0%BD%D0%B5%D0%BC%3F%20%D0%9F%D0%BE%D0%B3%D0%BD%D0%B0%D0%BB%D0%B8%20%D0%B4%D0%B5%D0%BB%D0%B0%D1%82%D1%8C%20Apple%20Developer%20Account%20%F0%9F%9A%80';
 
   return (
-    <div className="relative max-w-2xl mx-auto px-4 py-6 sm:py-10 flex flex-col items-center">
+    <div className="relative max-w-2xl mx-auto px-4 py-8 sm:py-12 flex flex-col items-center">
       {/* Ambient background glow */}
       <div className="absolute top-1/4 -translate-y-1/2 w-80 sm:w-[500px] h-80 apple-intelligence-glow pointer-events-none -z-10" />
-
-      {/* Top Badge */}
-      <motion.div
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.1] text-xs font-mono text-emerald-400 mb-6 backdrop-blur-md"
-      >
-        <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
-        <span>ОФФЕР ПРИНЯТ • СЕРТИФИКАТ СГЕНЕРИРОВАН</span>
-      </motion.div>
 
       {/* 3D Apple Card / Black Titanium Certificate */}
       <div className="w-full max-w-md perspective-1000 mb-8 sm:mb-10">
@@ -141,13 +130,12 @@ export const PageCertificate: React.FC<PageProps> = ({ onGoToStep }) => {
               <div className="text-xs sm:text-sm font-medium text-[#0A84FF] mt-1 tracking-tight">
                 Почётный сооснователь Apple Developer Account
               </div>
-              {/* Скрин 5: «ESports Analytics. Теперь — официально в App Store.» */}
               <p className="text-[11px] sm:text-xs text-[#86868B] italic mt-1.5">
                 «ESports Analytics. Теперь — официально в App Store.»
               </p>
             </div>
 
-            {/* Bottom Bar: Valid At, Serial ID, Date (Тамбов) */}
+            {/* Bottom Bar: Valid At, Serial ID, Date */}
             <div className="pt-3 border-t border-white/[0.08] flex items-end justify-between text-[9px] sm:text-[11px] font-mono text-[#86868B] z-10">
               <div className="space-y-0.5 text-left">
                 <div className="text-[8px] sm:text-[9px] uppercase tracking-wider text-white/40">VALID AT</div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ChevronLeft, Sparkles } from 'lucide-react';
+import { ChevronLeft } from 'lucide-react';
 import { StepNumber } from '../types';
 
 interface NavbarProps {
@@ -20,9 +20,9 @@ export const Navbar: React.FC<NavbarProps> = ({
   return (
     <header className="sticky top-0 z-50 w-full backdrop-blur-xl bg-black/70 border-b border-white/[0.08] transition-colors">
       <div className="max-w-4xl mx-auto px-4 h-14 sm:h-16 flex items-center justify-between">
-        {/* Left: Back Button or Spacer */}
+        {/* Left: Back Button or Empty Spacer */}
         <div className="w-20 flex items-center">
-          {currentStep > 1 ? (
+          {currentStep > 1 && (
             <motion.button
               initial={{ opacity: 0, x: -8 }}
               animate={{ opacity: 1, x: 0 }}
@@ -34,11 +34,6 @@ export const Navbar: React.FC<NavbarProps> = ({
               <ChevronLeft className="w-4 h-4 transition-transform group-hover:-translate-x-0.5 text-[#0A84FF]" />
               <span>Назад</span>
             </motion.button>
-          ) : (
-            <div className="flex items-center gap-1.5 opacity-60">
-              <Sparkles className="w-3.5 h-3.5 text-[#0A84FF]" />
-              <span className="text-[11px] font-mono uppercase tracking-wider text-[#86868B]">Keynote</span>
-            </div>
           )}
         </div>
 

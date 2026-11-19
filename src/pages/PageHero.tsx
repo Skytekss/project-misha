@@ -9,24 +9,11 @@ export const PageHero: React.FC<PageProps> = ({ onNext }) => {
       {/* Ambient Glow behind Hero */}
       <div className="absolute top-1/4 -translate-y-1/2 w-72 sm:w-96 h-72 sm:h-96 apple-intelligence-glow pointer-events-none -z-10" />
 
-      {/* Pill Badge */}
-      <motion.div
-        initial={{ opacity: 0, y: -16 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.1 }}
-        className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.12] shadow-sm mb-6 sm:mb-8 backdrop-blur-md"
-      >
-        <span className="flex h-2 w-2 rounded-full bg-[#0A84FF] animate-pulse" />
-        <span className="text-[11px] sm:text-xs font-medium tracking-wider uppercase text-[#E5E5EA]">
-          Apple Keynote • Special Edition • LA × ТАМБОВ
-        </span>
-      </motion.div>
-
       {/* Visual Center: Floating Glass Developer Emblem */}
       <motion.div
         initial={{ opacity: 0, scale: 0.85 }}
         animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+        transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
         className="relative mb-6 sm:mb-8"
       >
         {/* Floating motion wrapper */}
@@ -51,7 +38,7 @@ export const PageHero: React.FC<PageProps> = ({ onNext }) => {
               {/* Internal Glass Reflection Line */}
               <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.07] to-transparent pointer-events-none" />
 
-              {/* Developer Icon (Layered App Store / Code symbol) */}
+              {/* Developer Icon */}
               <div className="relative flex items-center justify-center">
                 <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-tr from-[#0A84FF] to-[#5AC8FA] flex items-center justify-center shadow-lg shadow-blue-500/30">
                   <Layers className="w-7 h-7 sm:w-8 sm:h-8 text-white drop-shadow" />
@@ -61,7 +48,7 @@ export const PageHero: React.FC<PageProps> = ({ onNext }) => {
                 </div>
               </div>
 
-              {/* Updated: ESports Analytics instead of DEV KIT */}
+              {/* ESports Analytics */}
               <div className="mt-2.5 flex items-center justify-center text-center">
                 <span className="text-[10px] sm:text-[11px] font-semibold tracking-wider uppercase bg-gradient-to-r from-blue-300 via-white to-purple-300 bg-clip-text text-transparent">
                   ESports Analytics
@@ -75,7 +62,7 @@ export const PageHero: React.FC<PageProps> = ({ onNext }) => {
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.4 }}
+          transition={{ delay: 0.3 }}
           className="mt-3 text-xs sm:text-sm font-medium text-[#86868B] tracking-tight"
         >
           От Калифорнии до App Store — один шаг
@@ -86,7 +73,7 @@ export const PageHero: React.FC<PageProps> = ({ onNext }) => {
       <motion.h1
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.3 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
         className="text-4xl sm:text-6xl font-bold tracking-tight text-[#F5F5F7] mb-4 sm:mb-6 leading-[1.08]"
       >
         Миша.{' '}
@@ -96,11 +83,11 @@ export const PageHero: React.FC<PageProps> = ({ onNext }) => {
         решение.
       </motion.h1>
 
-      {/* Subtitle with Meme Keyword without comma (Скрин 3 fix) */}
+      {/* Subtitle */}
       <motion.p
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.4 }}
+        transition={{ duration: 0.6, delay: 0.3 }}
         className="text-base sm:text-lg text-[#86868B] leading-relaxed max-w-xl mb-8 sm:mb-10"
       >
         Ты буквально живёшь в одном штате с Тимом Куком. Пришло время использовать эту суперсилу и вытащить наш код из симулятора Xcode в Тамбове. Готов узнать{' '}
@@ -114,7 +101,7 @@ export const PageHero: React.FC<PageProps> = ({ onNext }) => {
       <motion.div
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.5 }}
+        transition={{ duration: 0.6, delay: 0.4 }}
         className="grid grid-cols-3 gap-2 sm:gap-3 w-full max-w-md mb-8 sm:mb-12"
       >
         <div className="flex flex-col sm:flex-row items-center justify-center gap-1.5 p-2.5 sm:py-2 sm:px-3 rounded-2xl bg-white/[0.03] border border-white/[0.08] backdrop-blur-md">
@@ -141,7 +128,7 @@ export const PageHero: React.FC<PageProps> = ({ onNext }) => {
       <motion.div
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.6 }}
+        transition={{ duration: 0.6, delay: 0.5 }}
         className="w-full max-w-xs"
       >
         <button

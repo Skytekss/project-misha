@@ -8,7 +8,6 @@ import {
   MessageSquareQuote,
   Smartphone,
   ArrowRight,
-  Sparkles,
   ChevronRight,
 } from 'lucide-react';
 import { PageProps } from '../types';
@@ -45,10 +44,6 @@ export const PageBenefits: React.FC<PageProps> = ({ onNext }) => {
         transition={{ duration: 0.5 }}
         className="text-center mb-8 sm:mb-12"
       >
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.1] text-xs font-mono text-[#0A84FF] mb-3">
-          <Sparkles className="w-3.5 h-3.5" />
-          <span>BENTO GRID • 2026 EDITION</span>
-        </div>
         <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-[#F5F5F7] mb-3 sm:mb-4">
           Шовнем? Смотрим начинку сделки.
         </h2>
@@ -64,13 +59,12 @@ export const PageBenefits: React.FC<PageProps> = ({ onNext }) => {
         animate="show"
         className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-10 sm:mb-12"
       >
-        {/* 1. HERO CARD: Крёстный отец App Store (spans 2 columns on larger screens) */}
+        {/* 1. HERO CARD: Крёстный отец App Store */}
         <motion.div
           variants={itemVariants}
           whileHover={{ y: -3, borderColor: 'rgba(255, 215, 0, 0.35)' }}
           className="sm:col-span-2 group relative rounded-3xl p-6 sm:p-7 bg-gradient-to-br from-white/[0.06] via-white/[0.03] to-transparent border border-white/[0.1] backdrop-blur-xl shadow-xl overflow-hidden transition-all duration-300"
         >
-          {/* Subtle gold glow in background */}
           <div className="absolute -top-12 -right-12 w-48 h-48 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
 
           <div className="flex items-center justify-between mb-4">
@@ -122,7 +116,6 @@ export const PageBenefits: React.FC<PageProps> = ({ onNext }) => {
               <Utensils className="w-5 h-5" />
             </div>
 
-            {/* Visual badge inside card */}
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-rose-500/10 border border-rose-500/20 text-rose-300 text-xs font-medium">
               <span>Bar Rush (Тамбов)</span>
               <ChevronRight className="w-3.5 h-3.5" />
@@ -213,7 +206,7 @@ export const PageBenefits: React.FC<PageProps> = ({ onNext }) => {
       <motion.div
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.6 }}
+        transition={{ delay: 0.5 }}
         className="w-full max-w-sm"
       >
         <button

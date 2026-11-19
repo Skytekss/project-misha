@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Check, FileText, Sparkles, AlertCircle } from 'lucide-react';
+import { Check, FileText, AlertCircle } from 'lucide-react';
 import { PageProps } from '../types';
 
 export const PageContract: React.FC<PageProps> = ({ onNext }) => {
@@ -49,17 +49,13 @@ export const PageContract: React.FC<PageProps> = ({ onNext }) => {
       {/* Background ambient glow */}
       <div className="absolute top-10 left-1/2 -translate-x-1/2 w-80 sm:w-[480px] h-64 apple-intelligence-glow pointer-events-none -z-10" />
 
-      {/* Header */}
+      {/* Header without pill badge */}
       <motion.div
         initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
         className="text-center mb-6 sm:mb-8"
       >
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.1] text-xs font-mono text-[#0A84FF] mb-3">
-          <Sparkles className="w-3.5 h-3.5" />
-          <span>LEGAL PROTOCOL • ANGEL EDITION</span>
-        </div>
         <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-[#F5F5F7] mb-2 sm:mb-3">
           Официальное соглашение
         </h2>
@@ -172,7 +168,7 @@ export const PageContract: React.FC<PageProps> = ({ onNext }) => {
           )}
         </div>
 
-        {/* Fine Print - Тамбовская область */}
+        {/* Fine Print */}
         <p className="mt-4 text-[10px] sm:text-[11px] text-[#86868B]/70 leading-relaxed text-center">
           *Не является юридической офертой в штате Калифорния и Тамбовской области. Является железобетонной гарантией вечного респекта.
         </p>
