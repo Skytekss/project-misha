@@ -51,68 +51,50 @@ export const PageSimulator: React.FC<PageProps> = ({ onNext }) => {
         }`}
       />
 
-      {/* Header without pill badge */}
-      <motion.div
-        initial={{ opacity: 0, y: 12 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="text-center mb-8 sm:mb-10"
-      >
+      {/* Header */}
+      <div className="text-center mb-8 sm:mb-10">
         <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-[#F5F5F7] mb-3">
           Эффект бабочки
         </h2>
         <p className="text-sm sm:text-base text-[#86868B] max-w-md mx-auto">
           Посмотри, как одно действие в Лос-Анджелесе меняет таймлайн.
         </p>
-      </motion.div>
+      </div>
 
-      {/* iOS Segmented Control */}
-      <div className="w-full max-w-md p-1.5 rounded-2xl bg-white/[0.06] border border-white/[0.08] backdrop-blur-xl flex items-center mb-8 relative">
+      {/* iOS Segmented Control - Pure CSS Hardware-Accelerated Sliding Indicator (no layoutId conflicts) */}
+      <div className="w-full max-w-md p-1.5 rounded-2xl bg-white/[0.06] border border-white/[0.08] backdrop-blur-xl flex items-center mb-8 relative select-none">
+        {/* Sliding Pill Indicator */}
+        <div
+          className={`absolute top-1.5 bottom-1.5 w-[calc(50%-6px)] rounded-xl bg-white/[0.12] shadow-inner border border-white/[0.15] transition-transform duration-300 ease-out pointer-events-none ${
+            activeTab === 'delayed' ? 'translate-x-[calc(100%+6px)]' : 'translate-x-0'
+          }`}
+        />
+
         <button
           type="button"
           onClick={() => setActiveTab('helped')}
-          className={`relative z-10 flex-1 py-3 px-4 rounded-xl text-xs sm:text-sm font-semibold flex items-center justify-center gap-1.5 transition-colors cursor-pointer select-none ${
+          className={`relative z-10 flex-1 py-3 px-4 text-xs sm:text-sm font-semibold flex items-center justify-center gap-1.5 transition-colors cursor-pointer ${
             activeTab === 'helped' ? 'text-white' : 'text-[#86868B] hover:text-[#F5F5F7]'
           }`}
         >
           <span>Миша помог 🚀</span>
-          {activeTab === 'helped' && (
-            <motion.div
-              layoutId="activeTimelinePill"
-              className="absolute inset-0 bg-white/[0.12] rounded-xl shadow-inner border border-white/[0.15] -z-10"
-              transition={{ type: 'spring', stiffness: 400, damping: 30 }}
-            />
-          )}
         </button>
 
         <button
           type="button"
           onClick={() => setActiveTab('delayed')}
-          className={`relative z-10 flex-1 py-3 px-4 rounded-xl text-xs sm:text-sm font-semibold flex items-center justify-center gap-1.5 transition-colors cursor-pointer select-none ${
+          className={`relative z-10 flex-1 py-3 px-4 text-xs sm:text-sm font-semibold flex items-center justify-center gap-1.5 transition-colors cursor-pointer ${
             activeTab === 'delayed' ? 'text-white' : 'text-[#86868B] hover:text-[#F5F5F7]'
           }`}
         >
           <span>Миша отложил 😢</span>
-          {activeTab === 'delayed' && (
-            <motion.div
-              layoutId="activeTimelinePill"
-              className="absolute inset-0 bg-white/[0.12] rounded-xl shadow-inner border border-white/[0.15] -z-10"
-              transition={{ type: 'spring', stiffness: 400, damping: 30 }}
-            />
-          )}
         </button>
       </div>
 
       {/* Dynamic Results Card */}
       <div className="w-full max-w-lg mb-8">
         {activeTab === 'helped' ? (
-          <motion.div
-            key="helped-card"
-            initial={{ opacity: 0, scale: 0.97 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="rounded-3xl p-6 sm:p-7 bg-gradient-to-b from-white/[0.08] to-white/[0.03] border border-emerald-500/30 backdrop-blur-2xl shadow-2xl shadow-emerald-500/10 relative overflow-hidden"
-          >
+          <div className="rounded-3xl p-6 sm:p-7 bg-gradient-to-b from-white/[0.08] to-white/[0.03] border border-emerald-500/30 backdrop-blur-2xl shadow-2xl shadow-emerald-500/10 relative overflow-hidden transition-all duration-300">
             <div className="flex items-center gap-2 text-emerald-400 text-xs font-mono uppercase tracking-wider mb-5">
               <CheckCircle2 className="w-4 h-4" />
               <span>Оптимальный таймлайн (Калифорнийский триумф)</span>
@@ -149,15 +131,9 @@ export const PageSimulator: React.FC<PageProps> = ({ onNext }) => {
                 </p>
               </div>
             </div>
-          </motion.div>
+          </div>
         ) : (
-          <motion.div
-            key="delayed-card"
-            initial={{ opacity: 0, scale: 0.97 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="rounded-3xl p-6 sm:p-7 bg-gradient-to-b from-white/[0.05] to-white/[0.02] border border-rose-500/30 backdrop-blur-2xl shadow-2xl shadow-rose-500/10 relative overflow-hidden"
-          >
+          <div className="rounded-3xl p-6 sm:p-7 bg-gradient-to-b from-white/[0.05] to-white/[0.02] border border-rose-500/30 backdrop-blur-2xl shadow-2xl shadow-rose-500/10 relative overflow-hidden transition-all duration-300">
             <div className="flex items-center gap-2 text-rose-400 text-xs font-mono uppercase tracking-wider mb-5">
               <AlertTriangle className="w-4 h-4" />
               <span>Грустный таймлайн (Симуляторная тоска)</span>
@@ -191,7 +167,7 @@ export const PageSimulator: React.FC<PageProps> = ({ onNext }) => {
                 </p>
               </div>
             </div>
-          </motion.div>
+          </div>
         )}
       </div>
 
@@ -199,6 +175,7 @@ export const PageSimulator: React.FC<PageProps> = ({ onNext }) => {
       <div className="w-full max-w-sm flex flex-col items-center gap-3">
         {/* Main CTA */}
         <button
+          type="button"
           onClick={onNext}
           className="w-full h-14 rounded-2xl bg-gradient-to-r from-[#0A84FF] to-[#0071E3] hover:from-[#0077ED] hover:to-[#0066CC] active:scale-[0.97] text-white font-semibold text-base flex items-center justify-center gap-2 shadow-lg shadow-blue-500/25 transition-all cursor-pointer"
         >
